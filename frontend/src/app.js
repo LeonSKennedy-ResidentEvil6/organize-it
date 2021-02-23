@@ -32,11 +32,11 @@ function createEventFormHandler(e) {
     postEvent(eventNameInput, eventDescriptionInput)
 }
 
-
 function createParticipantFormHandler(e) {
     e.preventDefault()
-    const fullNameInput = 
-    const emailInput
-    const phoneNumberInput
-    const eventId 
+    const fullNameInput = document.querySelector('#full-name').value
+    const emailInput = document.querySelector('#email').value
+    const phoneNumberInput = document.querySelector('#phone-number').value
+    const eventId = document.querySelector('#event-list').value
+    postParticipant(fullNameInput, emailInput, phoneNumberInput, eventId)
 }
