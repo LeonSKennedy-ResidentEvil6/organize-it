@@ -181,3 +181,17 @@ Processing by ParticipantsController#index as HTML
 Completed 200 OK in 146ms (Views: 129.5ms | ActiveRecord: 6.7ms | Allocations: 17765)
 
 
+Started GET "/events" for 127.0.0.1 at 2021-02-23 13:24:42 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:5:in `index'
+  [1m[36mParticipant Load (1.9ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/controllers/events_controller.rb:5:in `index'
+  [1m[36mParticipant Load (0.1ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/controllers/events_controller.rb:5:in `index'
+  [1m[36mParticipant Load (0.2ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."event_id" = ?[0m  [["event_id", 3]]
+  ↳ app/controllers/events_controller.rb:5:in `index'
+Completed 200 OK in 35ms (Views: 26.5ms | ActiveRecord: 3.7ms | Allocations: 5520)
+
+
