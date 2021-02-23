@@ -29,8 +29,8 @@ body {
   }
   
   #containers {
-    margin: 2rem;
-  }
+    border: 4px dotted blue; 
+}
   
   .card {
     text-align: center;
