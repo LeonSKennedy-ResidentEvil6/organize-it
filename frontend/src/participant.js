@@ -25,6 +25,12 @@ class Participant {
         let cardElement = document.createElement('div')
         cardElement.innerHTML = cardMarkup
         participantCards.appendChild(cardElement)
+
+        let removeParticipant = document.createElement('div')
+        removeParticipant.setAttribute("id", this.id)
+        removeParticipant.innerHTML = "Remove Participant"
+        removeParticipant.addEventListener("click", e => deleteEvent(e))
+        participantCards.appendChild(removeParticipant)
     }
 
 }
