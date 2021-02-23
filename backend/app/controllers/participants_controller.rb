@@ -28,4 +28,5 @@ class ParticipantsController < ApplicationController
 
     def participant_params
         params.require(:participant).permit(:full_name, :email, :phone_number, :event_id)
+    end 
 end
