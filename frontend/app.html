@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organize It!</title>
 
-    <link ref="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <!-- Why put scripts in the head tag using ? -->
     <!-- https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup -->
     <script type="text/javascript" src="src/event.js" async></script>
     <script type="text/javascript" src="src/participant.js" async></script>
     <script type="text/javascript" src="src/app.js" async></script>
   </head>
+
   <body>
+
+    <nav>
+        <div class="nav-bar">
+          <h1 class="logo"><strong>Organize It!</strong></h1>
+        </div>
+    </nav>
+
+    <div id='nav-image'>
+        <img src="https://manula.r.sizr.io/large/user/1134/img/new-user-dashboard_v1.png" alt="nav-image">
+    </div>
    
     <div id="container">
         <form id="event-form">
@@ -27,7 +38,7 @@
         <br>
         <br>
 
-        <form id="participant-form">
+        <form id="participant-form" class="participant-form">
             <h2>Add Participants</h2>
             <label>Full Name:</label>
             <input id="full-name" type="text" name="fullname" placeholder="Full Name"></input>
