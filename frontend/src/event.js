@@ -16,6 +16,14 @@ class Event {
         eventListOption.setAttribute('id', this.id)
         eventListOption.setAttribute('value', this.id)
         eventList.appendChild(eventListOption)
+
+        let eventButton = document.createElement('button')
+        eventButton.setAttribute('id', this.id)
+        eventButton.innerHTML = `${this.name}`
+        eventButton.addEventListener('click', e => { renderAllEvents(e) });
+
+        const eventSelector = document.querySelector('#event-selector')
+        eventSelector.appendChild(eventButton);
     }
 }
 
