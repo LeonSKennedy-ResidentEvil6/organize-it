@@ -1,5 +1,5 @@
 const eventEndPoint = "http://127.0.0.1:3000/events"
-const participantEndPoint = "http://127.0.0.1:3000/events"
+const participantEndPoint = "http://127.0.0.1:3000/participants"
 
 // Load forms and other content to app html page
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,6 +24,7 @@ function getEvents() {
     })
 }
 
+// create event
 function createEventFormHandler(e) {
     e.preventDefault()
     const eventNameInput = document.querySelector('#input-event-name').value
@@ -31,6 +32,22 @@ function createEventFormHandler(e) {
     postEvent(eventNameInput, eventDescriptionInput)
 }
 
+// Post event
+function postEvent(name){
+    fetch(eventEndPoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({name})
+    })
+    .then(response => response.json())
+    .then(event => {
+        const newEvent = new Event(event.data)
+        newEvent.renderEvent();
+    })
+    .catch(error => { alert(error.message) })
+}
+
+//create participant
 function createParticipantFormHandler(e) {
     e.preventDefault()
     const fullNameInput = document.querySelector('#full-name').value
