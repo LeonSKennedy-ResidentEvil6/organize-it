@@ -22,3 +22,47 @@ FOREIGN KEY ("event_id")
   [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (2.2ms)[0m  [1m[32mINSERT INTO "events" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "business meetup event"], ["description", "monthly business meetup event for young professionals in the bay area"], ["created_at", "2021-02-23 18:00:31.237754"], ["updated_at", "2021-02-23 18:00:31.237754"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "fun meetup event"], ["description", "come and join us to meet new friends!"], ["created_at", "2021-02-23 18:00:31.246116"], ["updated_at", "2021-02-23 18:00:31.246116"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "dating event"], ["description", "tired of looking at those pictures? Grab a drink and meet your soul mate!"], ["created_at", "2021-02-23 18:00:31.251604"], ["updated_at", "2021-02-23 18:00:31.251604"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParticipant Create (2.2ms)[0m  [1m[32mINSERT INTO "participants" ("full_name", "email", "phone_number", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Neo"], ["email", "neo@gmail.com"], ["phone_number", 2136162841], ["event_id", 1], ["created_at", "2021-02-23 18:00:31.295785"], ["updated_at", "2021-02-23 18:00:31.295785"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParticipant Create (0.4ms)[0m  [1m[32mINSERT INTO "participants" ("full_name", "email", "phone_number", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Trinity"], ["email", "trinity@gmail.com"], ["phone_number", 6105264623], ["event_id", 1], ["created_at", "2021-02-23 18:00:31.305052"], ["updated_at", "2021-02-23 18:00:31.305052"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mParticipant Create (0.9ms)[0m  [1m[32mINSERT INTO "participants" ("full_name", "email", "phone_number", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Dan Rose"], ["email", "dan_rose@gmail.com"], ["phone_number", 4231234412], ["event_id", 2], ["created_at", "2021-02-23 18:00:31.313939"], ["updated_at", "2021-02-23 18:00:31.313939"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mParticipant Create (0.4ms)[0m  [1m[32mINSERT INTO "participants" ("full_name", "email", "phone_number", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Frank King"], ["email", "frank_king@gmail.com"], ["phone_number", 9897651231], ["event_id", 2], ["created_at", "2021-02-23 18:00:31.322552"], ["updated_at", "2021-02-23 18:00:31.322552"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mParticipant Create (0.9ms)[0m  [1m[32mINSERT INTO "participants" ("full_name", "email", "phone_number", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Leon Kennedy"], ["email", "leon.kennedy@gmail.com"], ["phone_number", 5146523123], ["event_id", 3], ["created_at", "2021-02-23 18:00:31.330370"], ["updated_at", "2021-02-23 18:00:31.330370"]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mParticipant Create (4.5ms)[0m  [1m[32mINSERT INTO "participants" ("full_name", "email", "phone_number", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Ada Wong"], ["email", "ada.wang@gmail.com"], ["phone_number", 3152224222], ["event_id", 3], ["created_at", "2021-02-23 18:00:31.371047"], ["updated_at", "2021-02-23 18:00:31.371047"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mParticipant Load (0.2ms)[0m  [1m[34mSELECT "participants".* FROM "participants" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mParticipant Load (0.2ms)[0m  [1m[34mSELECT "participants".* FROM "participants" ORDER BY "participants"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mParticipant Load (0.4ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."event_id" = ? LIMIT ?[0m  [["event_id", 1], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
