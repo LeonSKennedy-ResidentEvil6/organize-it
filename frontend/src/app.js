@@ -24,7 +24,6 @@ function getEvents() {
     })
 }
 
-
 function createEventFormHandler(e) {
     e.preventDefault()
     const eventNameInput = document.querySelector('#input-event-name').value
