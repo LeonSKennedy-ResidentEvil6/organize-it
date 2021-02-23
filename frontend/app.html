@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize It!</title>
+
+    <link ref="stylesheet" href="style/style.css">
+    <!-- Why put scripts in the head tag using ? -->
+    <!-- https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup -->
+    <script type="text/javascript" src="src/event.js" async></script>
+    <script type="text/javascript" src="src/participant.js" async></script>
+    <script type="text/javascript" src="src/app.js" async></script>
+  </head>
+  <body>
+   
+    <div id="container">
+        <form id="event-form">
+            <h2>Add a New Event</h2>
+            <input id="input-event-name" type="text" placeholder="Event Name"></input>
+            <br>
+            <input id="input-event-description" type="text" placeholder="Event Description"></input>
+            <br>
+            <input id="create-button" type="submit" name="submit" value="Add this Event" class="submit"></form></input>
+        </form>
+    </div>
+
+
+
+  </body>
+</html>
