@@ -1,10 +1,10 @@
-const eventEndPoint = "http://127.0.0.1:3000/events"
-const participantEndPoint = "http://127.0.0.1:3000/participants"
+const eventsEndPoint = "http://127.0.0.1:3000/events"
+const participantsEndPoint = "http://127.0.0.1:3000/participants"
 
 // Load forms and other content to app html page
 document.addEventListener('DOMContentLoaded', () => {
     const createEventForm = document.querySelector('#event-form');
-    createEventForm.addEventListener("submit", e => createEventFormHandler(e));
+    createEventForm.addEventListener("submit", (e) => createEventFormHandler(e));
 
     const createParticipantForm = document.querySelector('#participant-form')
     createParticipantForm.addEventListener("submit", e => createParticipantFormHandler(e));
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // get event
-function getEvents() {
-    fetch(eventEndPoint)
+async function getEvents() {
+    fetch(eventsEndPoint)
     .then(response => response.json())
     .then(events => {
         events.data.forEach(event => {
@@ -28,16 +28,24 @@ function getEvents() {
 function createEventFormHandler(e) {
     e.preventDefault()
     const eventNameInput = document.querySelector('#input-event-name').value
-    const eventDescriptionInput = document.querySelector('input-event-description').value
+    const eventDescriptionInput = document.querySelector('#input-event-description').value
     postEvent(eventNameInput, eventDescriptionInput)
 }
 
 // post event
-function postEvent(data){
-    fetch(eventEndPoint, {
+function postEvent(eventNameInput, eventDescriptionInput) {
+    fetch(eventsEndPoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({data})
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            event: {
+                name: eventNameInput,
+                description: eventDescriptionInput
+            }
+        })
     })
     .then(response => response.json())
     .then(event => {
@@ -49,7 +57,7 @@ function postEvent(data){
 
 // delete event
 function deleteEvent(e){
-    fetch(eventEndPoint + `/${e.target.id}`, {
+    fetch(eventsEndPoint + `/${e.target.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -80,7 +88,7 @@ function createParticipantFormHandler(e) {
 function postParticipant (full_name, email, phone_number, event_id){
     const participantObject = {full_name, email, phone_number, event_id}
 
-    fetch(studentsEndPoint, {
+    fetch(participantsEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(participantObject)
@@ -94,9 +102,32 @@ function postParticipant (full_name, email, phone_number, event_id){
     .catch(error => {alert(error.message)})
 }
 
+// display all participants
+function renderParticipants(e) {
+    const participantsCards = document.querySelector('#card-container')
+    participantsCards.innerHTML = `Current Event: ${e.target.innerHTML}`
+
+    let removeCourse = document.createElement('button')
+    removeCourse.innerHTML = `Remove this event`
+    removeCourse.setAttribute("id", e.target.id)
+    removeCourse.addEventListener("click", (e) => deleteEvent(e))
+    participantsCards.appendChild(removeCourse)
+
+    fetch(eventsEndPoint + `/${e.target.id}`)
+    .then(response => response.json())
+    .then(event => {
+        event.data.attributes.participants.forEach(participant => {
+            let newParticipant = new Participant(participant)
+            newParticipant.renderParticipant()
+        })
+        
+    })
+    .catch(error => { alert(error.message)})
+}
+
 // delete participant
 function deleteParticipant(e){
-    fetch(participantEndPoint + `/${e.target.id}`, {
+    fetch(participantsEndPoint + `/${e.target.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
